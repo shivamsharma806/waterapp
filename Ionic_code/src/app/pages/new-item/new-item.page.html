@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="register">
+    <ion-title style="color:white">Register Grievance</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref=home></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="regId">
+    <p>Register Your Complaint</p>
+  </div>
+  <ion-row style="border:#488aff 1px solid">
+    <!-- <ion-radio-group> -->
+        <ion-col>
+          
+            <!-- <ion-radio value="complaint" checked></ion-radio> -->
+            Complaint
+            <input type="radio" value="complaint" name="type"/>
+        </ion-col>
+        <ion-col>
+          
+            <!-- <ion-radio value="suggestion"></ion-radio> -->
+            Suggestion
+            <input type="radio" value="suggestion" name="type" />
+        </ion-col>
+    <!-- </ion-radio-group> -->
+    
+  </ion-row>
+  <div class="regId">
+    <p>Register Your Complaint</p>
+  </div>
+  <form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)" style="border:#488aff 1px solid">
+    <ion-item>
+      <ion-label color="primary" position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Father Name</ion-label>
+      <ion-input type="text" formControlName="father_name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">City</ion-label>
+      <ion-input type="text" formControlName="city" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Phone</ion-label>
+      <ion-input type="phone" formControlName="phone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Email</ion-label>
+      <ion-input type="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Description</ion-label>
+      <ion-input type="text" formControlName="description" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Image</ion-label>
+      <ion-input type="file" formControlName="image"></ion-input>
+    </ion-item>
+
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
+  </form>
+
+</ion-content>

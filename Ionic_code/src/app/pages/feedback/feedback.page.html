@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="feedback">
+    <ion-title style="color:white">Feedback</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <h1 style="color:royalblue">
+        Feedback or Suggestions
+      </h1>
+    </ion-col>
+  </ion-row>
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  </p>
+  <ion-list>
+      <ion-radio-group (ionChange)="rvalue($event)">
+        <ion-item>
+          <ion-label>Feedback</ion-label>
+          <ion-radio slot="start" value="Feedback"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Suggestions</ion-label>
+          <ion-radio slot="start" value="Suggestions"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <ion-button class="bottom-style" expand="block" (click)="giveFeedback()">SUBMIT</ion-button>
+</ion-content>

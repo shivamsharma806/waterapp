@@ -1,0 +1,35 @@
+<ion-header>
+  <img style="width:inherit;height:inherit;margin-bottom:-6px;" src="./assets/icon/header.jpeg">
+  <!-- <ion-toolbar color="primary">
+    <ion-title>Signup</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start" style="color:white">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content padding>
+    <ion-title style="color:steelblue" text-center>Signup</ion-title>
+  <form [formGroup]="signup_form" (submit)="doSignup(signup_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Phone</ion-label>
+      <ion-input type="phone" formControlName="phone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Email</ion-label>
+      <ion-input type="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!signup_form.valid">Signup</ion-button>
+  </form>
+
+</ion-content>

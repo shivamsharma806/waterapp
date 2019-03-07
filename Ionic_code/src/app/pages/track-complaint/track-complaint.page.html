@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="track">
+    <ion-title style="color:white">Track Grievance</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref="home" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list radio-group>
+    <ion-radio-group>
+      <ion-item>
+        <ion-radio value="department" checked></ion-radio>
+        <ion-label>Department Complaint</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio value="rural"></ion-radio>
+        <ion-label>Rural complaintt</ion-label>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-radio value="enemies"></ion-radio>
+        <ion-label>Deputy CM Complaint</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio value="enemies"></ion-radio>
+        <ion-label>Aarthik Madad Complaint</ion-label>
+      </ion-item> -->
+    </ion-radio-group>
+  </ion-list>
+  <p>Track all complaints register through your mobile number</p>
+  <ion-button expand="full" (click)="trackOwnComplaints()">
+      TRACK COMPLAINT
+  </ion-button>
+  <ion-button expand="full" class="bottom-style" (click)="trackOthersComplaints()">
+      TRACK OTHER MOBILE NO. COMPLAINT
+  </ion-button>
+  
+</ion-content>

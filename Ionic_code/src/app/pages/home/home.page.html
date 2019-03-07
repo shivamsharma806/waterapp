@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title text-center>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="doLogout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <img slot="start" src="./assets/icon/logo.png" style="width:30px;height:inherit;margin-left:10px;">
+    <!-- <ion-buttons slot="end" style="color:white">
+      <ion-button (click)="doLogout()">
+        <img slot="icon-only" name="more">
+      </ion-button>
+    </ion-buttons> -->
+    <!-- <ion-buttons *ngIf="session_user.type == '1'" slot="end">
+      <ion-button (click)="openNewItemPage()">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col style="background:#527ABC;height:7%;">
+      <p style="margin:6px 2px 2px 5px;color:white;">Welcome {{session_user?.name}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row style="height:25%;padding:8px 16px 8px 16px;">
+    <ion-col *ngIf="session_user?.type == 1" style="background:#FF8600;margin-right:8px;background-image: url('./assets/icon/register.jpg');background-repeat: no-repeat;
+      background-size: contain;" (click)="goRegister()">
+
+    </ion-col>
+    <ion-col *ngIf="session_user?.type == 2" style="background:#FF8600;margin-right:8px;" (click)="goGrievance()">
+      <img src="./assets/icon/engineer.png" style="height: 50%;margin-top: 10%;margin-left: 25%;">
+      <p style="color: white;text-align: center;">Grievances</p>
+    </ion-col>
+    <ion-col style="background:#527ABC;margin-left:8px;background-image: url('./assets/icon/track.jpg');background-repeat: no-repeat;
+      background-size: contain;" (click)="goTrack()">
+
+    </ion-col>
+    <!-- <ion-col *ngIf="session_user?.type == 2" style="background:#527ABC;margin-left:8px;" (click)="goTrack()">
+    
+    <img src="./assets/icon/complete.png" style="height: 50%;margin-top: 10%;margin-left: 28%;">
+    <p style="color: white;text-align: center;">Complete</p>
+  </ion-col> -->
+  </ion-row>
+  <ion-row style="height:25%;padding:8px 16px 8px 16px;">
+    <ion-col style="background:#DC4337;margin-right:8px;background-image: url('./assets/icon/reminder.jpg');background-repeat: no-repeat;
+        background-size: contain;" (click)="goReminder()">
+    </ion-col>
+    <ion-col style="background:#A2C921;margin-left:8px;background-image: url('./assets/icon/feedback.jpg');background-repeat: no-repeat;
+        background-size: contain;" (click)="goFeedback()"></ion-col>
+  </ion-row>
+  <ion-row style="height:25%;padding:8px 16px 8px 16px;">
+    <ion-col style="background:#7266BA;margin-right:8px;background-image: url('./assets/icon/user.jpg');background-repeat: no-repeat;
+      background-size: contain;" (click)="goUser()">
+    </ion-col>
+    <ion-col style="background:#489834;margin-left:8px;background-image: url('./assets/icon/contact.jpg');background-repeat: no-repeat;
+      background-size: contain;" (click)="goContact()"></ion-col>
+  </ion-row>
+  <ion-row style="height:16%;padding:8px 16px 8px 16px;">
+    <ion-col style="background-image: url('./assets/icon/about.jpg');background-repeat: no-repeat;
+    background-size: cover;" (click)="goAbout()"></ion-col>
+  </ion-row>
+  <!-- <p>ID: {{session_user.id}} | Name: {{session_user.name}} | Type: {{session_user.type}}</p>
+  <ion-label>New</ion-label>
+  <ion-list>
+    <ion-item *ngFor="let ticket of tickets.newtickets" (click)="goToItem(ticket)">
+      <ion-label>
+        {{ ticket.description }}
+        <br/>
+        <p> {{ ticket.state }}</p>
+      </ion-label>
+      
+      <ion-label>
+        {{ ticket.phone }}
+      </ion-label>
+      
+    </ion-item>
+  </ion-list>
+  
+  <ion-label>Processing</ion-label>
+  <ion-list>
+    <ion-item *ngFor="let ticket of tickets.processingtickets" (click)="goToItem(ticket)">
+      <ion-label>
+        {{ ticket.description }}
+        <br/>
+        <p> {{ ticket.state }}</p>
+      </ion-label>
+      
+      <ion-label>
+        {{ ticket.phone }}
+      </ion-label>
+      
+    </ion-item>
+  </ion-list>
+  
+  <ion-label>Completed</ion-label>
+  <ion-list>
+    <ion-item *ngFor="let ticket of tickets.completedtickets" (click)="goToItem(ticket)">
+      <ion-label>
+        {{ ticket.description }}
+        <br/>
+        <p> {{ ticket.state }}</p>
+      </ion-label>
+      
+      <ion-label>
+        {{ ticket.phone }}
+      </ion-label>
+      
+    </ion-item>
+  </ion-list> -->
+
+
+
+
+
+  <!--<ion-label>Active</ion-label>-->
+  <!--<ion-list>-->
+  <!--  <ion-item *ngFor="let item of items" (click)="goToItem(item)">-->
+  <!--    <ion-label>-->
+  <!--      {{ item.description }}-->
+  <!--      <br/>-->
+  <!--      <p> {{ item.state }}</p>-->
+  <!--    </ion-label>-->
+  <!--    -->
+  <!--    <ion-label>-->
+  <!--      {{ item.phone }}-->
+  <!--    </ion-label>-->
+  <!--    -->
+  <!--  </ion-item>-->
+  <!--</ion-list>-->
+  <!---->
+  <!--<ion-label>Completed</ion-label>-->
+  <!--<ion-list>-->
+  <!--  <ion-item *ngFor="let item of items" (click)="goToItem(item)">-->
+  <!--    <ion-label>-->
+  <!--      {{ item.description }}-->
+  <!--      <br/>-->
+  <!--      <p> {{ item.state }}</p>-->
+  <!--    </ion-label>-->
+  <!--    -->
+  <!--    <ion-label>-->
+  <!--      {{ item.phone }}-->
+  <!--    </ion-label>-->
+  <!--    -->
+  <!--  </ion-item>-->
+  <!--</ion-list>-->
+</ion-content>

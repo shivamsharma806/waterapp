@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="register">
+    <ion-title style="color:white">grievence</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref=home></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p *ngIf="complaint == 0" style="color:red;">
+    note: details of rescheduling references can be seen upto 3 months ago.
+  </p>
+  <!-- <div *ngIf="tickets?.newtickets?.length > 0">
+        <p text-center>New Grievance</p>
+        <ion-row *ngFor="let nt of tickets.newtickets" style="border:black 1px solid">
+          <ion-col style="border-right: black 1px solid;">
+            {{nt.description}}
+          </ion-col>
+          <ion-col>
+            Submitted to relevent Engineer
+          </ion-col>
+        </ion-row>
+      </div> -->
+  <div *ngIf="tickets?.processingtickets?.length > 0">
+    <p>In progress Grievance</p>
+    <div *ngFor="let pt of tickets.processingtickets" style="border:black 1px solid">
+      <ion-row>
+        <ion-col>
+          {{pt.description}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input id="remarks" placeholder="Please enter your Remarks" type="textarea" name="remarks"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="markComplete(pt.id)">Complete</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="tickets?.completedtickets?.length > 0">
+    <p>Completed Grievance</p>
+    <ion-row *ngFor="let ct of tickets.completedtickets" style="border:black 1px solid">
+      <ion-col style="border-right: black 1px solid;">
+        {{ct.description}}
+      </ion-col>
+      <ion-col>
+        Completed
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="feedback">
+    <ion-title style="color:white">Feedback</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <img style="width:inherit;height:inherit;margin-bottom:-6px;" src="./assets/icon/header.jpeg">
+</ion-header>
+
+<ion-content padding>
+    
+  <ion-row>
+    <ion-col>
+      <h1 style="color:royalblue">
+        Feedback or Suggestions
+      </h1>
+    </ion-col>
+  </ion-row>
+
+  <form [formGroup]="feedback_on_complaint_form" (submit)="trackOthersComplaints(feedback_on_complaint_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Registered Complaint Id</ion-label>
+      <ion-input type="text" formControlName="complaint_number" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <p color="primary">Satisfaction Rating</p>
+    </ion-item>
+    <ion-item>
+      <ngb-rating [(rate)]="currentRate" max="5"></ngb-rating>
+    </ion-item>
+    <ion-item>
+      <p color="primary">Feedback</p>
+    </ion-item>
+    <ion-item>
+      <textarea formControlName="feedback" required></textarea>
+    </ion-item>
+    <ion-button class="bottom-style" expand="full" type="submit">
+      SAVE
+    </ion-button>
+  </form>
+
+</ion-content>

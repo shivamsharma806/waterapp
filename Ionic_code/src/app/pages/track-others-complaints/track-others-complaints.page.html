@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="register">
+    <ion-title style="color:white">Track Grievance</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref=“home (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 style="color:steelblue" text-center>View Complaint Status</h1>
+  <form [formGroup]="track_others_form" (submit)="trackOthersComplaints(track_others_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Complaint Number</ion-label>
+      <ion-input type="text" formControlName="complaint_number" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Mobile Number</ion-label>
+      <ion-input type="tel" formControlName="mobile" required></ion-input>
+    </ion-item>
+  </form>
+  <ion-row class="bottom-style">
+    <ion-col>
+      <ion-button expand="full" (click)="trackOthersComplaints(track_others_form.value)" [disabled]="!track_others_form.valid">
+        VIEW
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="full" (click)="reSet()">
+        RESET
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <p *ngIf="complaint == 0" style="color:red;">
+      note: details of rescheduling references can be seen upto 3 months ago.
+    </p>
+    <div *ngIf="tickets?.length > 0">
+      <p text-center>Grievance</p>
+      <ion-row *ngFor="let nt of tickets" style="border:black 1px solid">
+        <ion-col style="border-right: black 1px solid;">
+          {{nt.description}}
+        </ion-col>
+        <ion-col>
+          <p *ngIf="nt.state == 1">submitted to relevent Engineer</p>
+          <p *ngIf="nt.state == 2">In Progress</p>
+          <p *ngIf="nt.state == 3">Completed</p>
+        </ion-col>
+      </ion-row>
+    </div>
+</ion-content>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Complaint Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="edit_item_form" (submit)="markComplete(edit_item_form.value)">
+    <!--<ion-item>-->
+    <!--  <ion-label color="primary" position="floating">ID</ion-label>-->
+    <!--  -->
+    <!--</ion-item>-->
+    <ion-input type="hidden" formControlName="id"  disabled></ion-input>
+    <ion-item>
+      <ion-label color="primary" position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Father Name</ion-label>
+      <ion-input type="text" formControlName="father_name"  disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">City</ion-label>
+      <ion-input type="text" formControlName="city"  disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Phone</ion-label>
+      <ion-input type="phone" formControlName="phone"  disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Description</ion-label>
+      <ion-input type="text" formControlName="description"  disabled></ion-input>
+    </ion-item>
+    <!--<ion-item>-->
+    <!--  <ion-label color="primary" position="floating">Image</ion-label>-->
+    <!---->
+    <!--</ion-item>-->
+      <ion-input type="hidden" formControlName="image"  disabled></ion-input>
+    <ion-item>
+      <ion-label color="primary" position="floating">State</ion-label>
+      <ion-input type="text" formControlName="state"  disabled></ion-input>
+    </ion-item>
+    <!--<ion-item>-->
+    <!--  <ion-label color="primary" position="floating">Engineer ID</ion-label>-->
+    <!--  -->
+    <!--</ion-item>-->
+    <ion-input type="hidden" formControlName="engineer_id"  disabled></ion-input>
+    <!--<ion-item>-->
+    <!--  <ion-label color="primary" position="floating">User ID</ion-label>-->
+    <!---->
+    <!--</ion-item>-->
+    <ion-input type="hidden" formControlName="user_id" disabled></ion-input>
+    <ion-item>
+      <ion-label color="primary" position="floating">Date/Time</ion-label>
+      <ion-input type="text" formControlName="datetime" disabled></ion-input>
+    </ion-item>
+    
+    <!--<ion-item *ngIf="session_user.type == '2'">-->
+    <!--  <ion-label color="primary" position="floating">New Engineer</ion-label>-->
+    <!--  <ion-select [(ngModel)]="new_engineer_id">-->
+    <!--    <ion-select-option value="1">Ahsan</ion-select-option>-->
+    <!--    <ion-select-option value="2">Akram</ion-select-option>-->
+    <!--  </ion-select>-->
+    <!--  -->
+    <!--</ion-item>-->
+    <!--<ion-button *ngIf="session_user.type == '2'"  class="submit-btn" expand="block" type="submit" [disabled]="!edit_item_form.valid">Assign</ion-button>-->
+    
+    
+    <ion-item *ngIf="session_user.type == '2' && item.state== '2'">
+      <ion-label color="primary" position="floating">Remarks</ion-label>
+      <ion-input type="textarea" formControlName="remarks" required ></ion-input>
+      
+    </ion-item>
+    <ion-button *ngIf="session_user.type == '2' && item.state== '2'" class="submit-btn" expand="block" type="submit" [disabled]="!edit_item_form.valid">Mark Complete</ion-button>
+    
+    
+    
+    
+    <!--<ion-button class="submit-btn" expand="block" type="submit" [disabled]="!edit_item_form.valid">Update</ion-button>-->
+  </form>
+</ion-content>

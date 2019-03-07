@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="feedback">
+    <ion-title style="color:white;">Feedback Suggestion</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref=home></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <img style="width:inherit;height:inherit;margin-bottom:-6px;" src="./assets/icon/header.jpeg">
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <h1 style="color:royalblue">
+        Feedback or Suggestions
+      </h1>
+    </ion-col>
+  </ion-row>
+
+  <form [formGroup]="feedback_on_suggestion_form" (submit)="trackOthersComplaints(feedback_on_suggestion_form.value)">
+    <ion-item>
+      <p color="primary">Feedback</p>
+    </ion-item>
+    <ion-item>
+      <textarea style="width:100%;" formControlName="suggestion" required></textarea>
+    </ion-item>
+    <ion-button class="bottom-style" expand="full" type="submit">
+      Send
+    </ion-button>
+  </form>
+</ion-content>

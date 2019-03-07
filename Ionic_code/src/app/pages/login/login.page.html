@@ -1,0 +1,28 @@
+<ion-header>
+  <!-- <ion-toolbar> -->
+    <img style="width:inherit;height:inherit;margin-bottom:-6px;" src="./assets/icon/header.jpeg">
+    <!-- <ion-title text-center>HimIPH</ion-title> -->
+<!--    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>-->
+  <!-- </ion-toolbar> -->
+</ion-header>
+
+<ion-content padding>
+  <ion-title style="color:steelblue" text-center>HimIPH</ion-title>
+  <form [formGroup]="login_form" (submit)="doLogin(login_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!login_form.valid">Login</ion-button>
+  </form>
+  
+  <ion-button class="submit-btn" expand="block" (click)="openSignupPage(1)" >Signup as User</ion-button>
+  <ion-button class="submit-btn" expand="block" (click)="openSignupPage(2)" >Signup as Engineer</ion-button>
+
+</ion-content>

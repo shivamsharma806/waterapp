@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="track">
+    <ion-title style="color:white">Track Grievance</ion-title>
+    <ion-buttons slot="start" style="color:white">
+      <ion-back-button defaultHref=“home (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p *ngIf="complaint == 0" style="color:red;">
+    note: No Grievance is assigned to you.
+  </p>
+  <div *ngIf="tickets?.newtickets?.length > 0">
+    <p text-center>New Grievance</p>
+    <ion-row *ngFor="let nt of tickets.newtickets" style="border:black 1px solid">
+      <ion-col style="border-right: black 1px solid;">
+        {{nt.description}}
+      </ion-col>
+      <ion-col>
+        Submitted to relevent Engineer
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngIf="tickets?.processingtickets?.length > 0">
+    <p>In progress Grievance</p>
+    <ion-row *ngFor="let pt of tickets.processingtickets" style="border:black 1px solid">
+      <ion-col style="border-right: black 1px solid;">
+        {{pt.description}}
+      </ion-col>
+      <ion-col>
+        In Progress
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngIf="tickets?.completedtickets?.length > 0">
+    <p>Completed Grievance</p>
+    <ion-row *ngFor="let ct of tickets.completedtickets" style="border:black 1px solid">
+      <ion-col style="border-right: black 1px solid;">
+        {{ct.description}}
+      </ion-col>
+      <ion-col>
+        Completed
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
